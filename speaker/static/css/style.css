@@ -1,0 +1,32 @@
+.search-results {
+    min-height: 300px;
+    width: 100%;
+}
+.search-results .spinner {
+    position: absolute;
+    transform: translateY(-50%) translateX(-50%);
+    top: 50%;
+    left: 50%;
+}
+#search-results div,
+#search-results p {
+    float: left;
+}
+#search-results li > p {
+    padding-left: 20px;
+}
+#player-status {
+    position: fixed;
+    bottom: 0;
+    backface-visibility: hidden;
+    perspective: 1000px;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+#player-status #status {
+    float: left;
+}
+#player-status #stop {
+    float: right;
+}

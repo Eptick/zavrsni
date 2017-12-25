@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Završni rad</title>
+    <meta name="description" content="Završni rad">
+    <meta name="author" content="Leon Redžić">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="static/uikit/css/uikit.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/jquery.js"></script>
+    <script src="static/uikit/js/uikit.min.js"></script>
+    <script src="static/uikit/js/uikit-icons.min.js"></script>
+    <script src="static/js/site.js"></script>
+</head>
+
+<body id="body">
+    <div class="search">
+        <form class="uk-search uk-search-large" id="search">
+            <span uk-search-icon></span>
+            <input class="uk-search-input" type="search" placeholder="Search" id="search-input">
+        </form>
+    </div>
+    <div class="search-results">
+        <div class="spinner" uk-spinner></div>
+        <ul class="uk-list uk-list-striped" id="search-results">
+        </ul>
+    </div>
+    <div id="player-status">
+        <p id="status">Not playing</p>
+        <button id="stop"class="uk-button uk-button-secondary"><span uk-icon="icon: close"></span></button>
+    </div>
+</body>
+</html>

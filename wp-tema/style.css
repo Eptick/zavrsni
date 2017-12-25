@@ -1,0 +1,41 @@
+/*
+Theme Name: Završni rad
+Author: Leon Redžić
+Description: Tema za završni rad
+Version: 1.0
+
+Tags: i'm, done, hue
+Text Domain: zavrsni
+
+*/
+html {
+    overflow: hidden;
+}
+body {
+    width: 100vw;
+    height: 95vh;
+    background: #333;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    box-sizing: content-box;
+}
+h1 {
+    padding: 10px 0;
+    font-size: 2em;
+    font-weight: 600;
+}
+h4 {
+    padding: 0 5px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+p, h1, h4 {
+    width: 100%;
+    text-align: center;
+}
+p {
+    text-align: right;
+    position: fixed;
+    right: 10px;
+    bottom: 5px;
+}
