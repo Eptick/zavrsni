@@ -24,9 +24,13 @@
     padding: 5px;
     box-sizing: border-box;
     background: #333;
+    height: 55;
 }
 #player-status #status {
     float: left;
+    line-height: 45px;
+    color: white;
+    font-weight: 600;
 }
 #player-status #stop {
     float: right;

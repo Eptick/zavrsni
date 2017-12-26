@@ -3,10 +3,18 @@ const stream = require('youtube-audio-stream')
 const decoder = require('lame').Decoder
 const Speaker = require('speaker')
 const cp = require('child_process');
+const EventEmitter = require('events');
+
+class CloseEmitter extends EventEmitter {}
+
+var closeEmitter = new CloseEmitter();
+exports.closeEmitter = closeEmitter;
 
 var _stream = null;
+exports.playing = null;
 exports.play = function (id) {
     this.stop();
+    let self = this;
     try {
         _stream = cp.spawn('node', [__dirname + '/play.js', id]);
         _stream.stdout.on('data', (data) => {
@@ -19,6 +27,10 @@ exports.play = function (id) {
         
         _stream.on('close', (code) => {
             console.log(`child process exited with code ${code}`);
+        });
+        _stream.on("close", (code, signal) => {
+            self.playing = null;
+            closeEmitter.emit('close');
         });
     } catch(e){console.error(e)}
 };
