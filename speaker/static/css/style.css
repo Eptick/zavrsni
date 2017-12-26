@@ -23,6 +23,7 @@
     width: 100%;
     padding: 5px;
     box-sizing: border-box;
+    background: #333;
 }
 #player-status #status {
     float: left;

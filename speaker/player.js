@@ -2,13 +2,13 @@ const stream = require('youtube-audio-stream')
 
 const decoder = require('lame').Decoder
 const Speaker = require('speaker')
-const { spawn } = require('child_process');
+const cp = require('child_process');
 
 var _stream = null;
 exports.play = function (id) {
     this.stop();
     try {
-        _stream = spawn('node', [__dirname + '\\play.js', id]);
+        _stream = cp.spawn('node', [__dirname + '/play.js', id]);
         _stream.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });
