@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="static/uikit/css/uikit.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <script src="static/js/jquery.js"></script>
+    <script src="static/socket/socket.io.slim.js"></script>
     <script src="static/uikit/js/uikit.min.js"></script>
     <script src="static/uikit/js/uikit-icons.min.js"></script>
     <script src="static/js/site.js"></script>
@@ -33,7 +34,7 @@
         </ul>
     </div>
     <div id="player-status">
-        <p id="status">Not playing</p>
+        <p id="status" class="uk-margin-remove">...</p>
         <button id="stop"class="uk-button uk-button-secondary"><span uk-icon="icon: close"></span></button>
     </div>
 </body>

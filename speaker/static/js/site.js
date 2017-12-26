@@ -1,8 +1,20 @@
+var socket = io();
+socket.on('status update', function(msg){
+    console.log(msg);
+    switch(msg.status) {
+        case 1:
+            $("#status").html(msg.title)
+        break;
+        case 2:
+            $("#status").html("Waiting...")
+        break;
+        case 3:
+
+        break;
+    }
+});
 $(document).ready(() => {
-    const YOUTUBE_API = '';
-    $("#send").click(() => {
-        
-    });
+    $.post( "/", { action: "status" }, function( data ) {});
     function initPlayButtons() {
         $(".play-song").click((event) => {
             event.preventDefault();
