@@ -117,8 +117,8 @@ function getSongTitle(id) {
     });
 }
 
-// io.on('connection', function(socket){
-//     console.log('a user connected');
-// });
+io.on('connection', function(socket){
+    console.log('a user connected');
+});
 
 http.listen(8080, () => console.log('Speaker listening on port 8080!'))

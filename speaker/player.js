@@ -17,6 +17,7 @@ exports.play = function (id) {
     let self = this;
     try {
         _stream = cp.spawn('node', [__dirname + '/play.js', id]);
+        this.playing = id;
         _stream.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
         });
