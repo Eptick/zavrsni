@@ -31,7 +31,18 @@
     line-height: 45px;
     color: white;
     font-weight: 600;
+    max-width: 80%;
+    height: 45px;
+    text-overflow: ellipsis;
 }
 #player-status #stop {
-    float: right;
+    height: 45px;
+    max-width: 15%;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#player-status #stop span {
+    line-height: 45px;
 }
