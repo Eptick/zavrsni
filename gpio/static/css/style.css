@@ -1,0 +1,33 @@
+.board {
+    width: 320px;
+    height: 320px;
+    background: rgb(32, 32, 32);
+}
+.board .row {
+    height: 40px;
+    width: 320px;
+}
+.row .led {
+    height: 40px;
+    width: 40px;
+    float: left;
+    position: relative; 
+}
+.led input[type='checkbox'] {
+    visibility: hidden;
+}
+.led label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    background-color: gray;
+}
+.led input[type=checkbox]:checked + label {
+	background-color: rgba(92, 245, 3, 0.897);
+}
