@@ -27,21 +27,14 @@
 
     </div>
     <div class="body">
-        <!-- <div uk-slideshow>
-            <ul class="uk-slideshow-items" uk-height-viewport="min-height: 480">
-                <li>
-                    <img src="https://getuikit.com/docs/images/photo.jpg" alt="" uk-cover>
-                </li>
-                <li>
-                    <img src="https://getuikit.com/docs/images/photo.jpg" alt="" uk-cover>
-                </li>
-                <li>
-                    <img src="https://getuikit.com/docs/images/photo.jpg" alt="" uk-cover>
-                </li>
-            </ul>
-        </div> -->
         <div id="app">
-            <board v-bind:frame="frames"></board>
+            <div uk-slideshow>
+                <ul class="uk-slideshow-items boards" uk-height-viewport="min-height: 480">
+                    <li v-for="(board, index) in getFramesData()" class="board-item">
+                        <board v-bind:frame="index+1"></board>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>

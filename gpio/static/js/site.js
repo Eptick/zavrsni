@@ -3,17 +3,9 @@ socket.on('status update', function(msg){
     
 });
 Vue.config.devtools = true
-window.framesData = [
-    [[0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0]],
-];
+window.framesData = [];
 $(document).ready(() => {
+
 Vue.component('board', {
     props: {
         frame: {
@@ -60,10 +52,15 @@ Vue.component('board', {
 window.gpio = new Vue({
     el: '#app',
     data: {
-        frames: 1,
+        frames: 4,
         message: 'Hello Vue!'
     },
     methods: {
+        getFramesData: function() {
+            if(window.framesData !== undefined)
+                return window.framesData
+            return []
+        },
         getFrames: function() {
             let data = [];
             $("#board-1 .row").each(function () {
@@ -77,6 +74,19 @@ window.gpio = new Vue({
             })
             console.log(data);
         }
+    },
+    created: function () {
+        window.framesData = []
+        let x = 8;
+        let y = 8;
+        let frame = []
+        let row = [];
+        for(let i = 0; i < x; i++)
+            row.push(0)
+        for(let i = 0; i < y; i++)
+            frame.push(row)
+        for(let i = 0; i < this.frames; i++)
+            window.framesData.push(frame)
     }
 })
 // // $.post( "/", { action: "status" }, function( data ) {});
