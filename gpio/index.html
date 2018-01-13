@@ -23,15 +23,27 @@
 </head>
 
 <body id="body">
-    <div class="header">
-
-    </div>
     <div class="body">
         <div id="app">
-            <div uk-slideshow>
+            <div class="header">
+                <button class="uk-button uk-button-default" type="button" v-on:click="addFrame()">Add Frame</button>
+                <button class="uk-button uk-button-danger remove-frame">Remove Frame</button>
+                <button class="uk-button uk-button-primary send-frames">Send frames</button>
+            </div>
+            <div id="slideshowBoards" v-if="show" uk-slideshow>
                 <ul class="uk-slideshow-items boards" uk-height-viewport="min-height: 480">
-                    <li v-for="(board, index) in getFramesData()" class="board-item">
-                        <board v-bind:frame="index+1"></board>
+                    <li v-for="(board, index) in framesData" class="board-item">
+                        <div class="board" :id="parseInt(index)">
+                            <div class="row" v-for="(row, rowIndex) in framesData[index]">
+                                <div class="led" v-for="(led, ledIndex) in row">
+                                <div class="ledElement"
+                                    v-on:click="setLedState(index, rowIndex, ledIndex)"
+                                    v-bind:class="{ active: ledIsActive(index, rowIndex, ledIndex)}">
+                                </div>
+                                <!-- input type="checkbox" v-model="framesData[index][rowIndex][ledIndex]" :true-value="1" :false-value="0" v-bind:name="getLedId(index,rowIndex,ledIndex)" v-bind:id="getLedId(index,rowIndex,ledIndex)"><label v-bind:for="getLedId(index, rowIndex,ledIndex)"></label> -->
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>

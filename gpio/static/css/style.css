@@ -8,27 +8,22 @@
     width: 320px;
 }
 .row .led {
-    height: 40px;
-    width: 40px;
+    height: 34px;
+    width: 34px;
     float: left;
     position: relative; 
+    padding: 3px
 }
-.led input[type='checkbox'] {
-    visibility: hidden;
-}
-.led label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    height: 30px;
-    width: 30px;
-    padding: 0;
+.led .ledElement {
+    position: relative;
+    height: 34px;
+    width: 34px;
     margin: 0;
     border-radius: 50%;
     background-color: gray;
+    box-sizing: border-box;
 }
-.led input[type=checkbox]:checked + label {
+.led .ledElement.active{
 	background-color: rgba(92, 245, 3, 0.897);
 }
 .boards .board {
@@ -36,4 +31,16 @@
     left: 50%;
     top: 50%;
     transform: translate3d(-160px,-160px,0);
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 5px
+}
+.header .send-frames {
+    position: absolute;
+    right: 0;
 }
