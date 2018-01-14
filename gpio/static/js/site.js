@@ -64,11 +64,14 @@ window.gpio = new Vue({
             return (state === 0)?false:true;
         },
         removeFrame() {
+            let count = window.countProperties(this.framesData);
+            if(count === 1)
+                return;
             let indexToRemove = this.slideshow.getIndex();
             console.log(indexToRemove);
-            for(let i = indexToRemove+1; i < window.countProperties(this.framesData); i++)
+            for(let i = indexToRemove+1; i < count; i++)
                 this.framesData[i-1] = this.framesData[i];
-            delete this.framesData[window.countProperties(this.framesData)-1];
+            delete this.framesData[count-1];
             this.refreshSlideshow();
         },
         sendData() {
