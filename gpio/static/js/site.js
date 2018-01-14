@@ -15,7 +15,6 @@ window.gpio = new Vue({
         y: 8,
         frame: [],
         frames: 2,
-        message: 'Hello Vue!',
         currentIndex: 0,
         show: true,
         framesData: {},
@@ -104,13 +103,4 @@ window.gpio = new Vue({
         this.refreshSlideshow();
     }
 })
-// // $.post( "/", { action: "status" }, function( data ) {});
-// function init() {
-
-// }
-// // $("#stop").click(() => {
-// //     $.post( "/", { action: "stop" }, function( data ) {
-// //         console.log( data );
-// //     });
-// // });
 })
