@@ -26,11 +26,16 @@
     <div class="body">
         <div id="app">
             <div class="header">
-                <button class="uk-button uk-button-default" type="button" v-on:click="addFrame()">Add Frame</button>
-                <button class="uk-button uk-button-danger remove-frame">Remove Frame</button>
+                <button class="uk-button uk-button-default" type="button">Frames</button>
+                <div uk-dropdown>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li v-on:click="addFrame()"><a href="#">New Frame</a></li>
+                        <li v-on:click="removeFrame()"><a href="#">Remove Frame</a></li>
+                    </ul>
+                </div>
                 <button class="uk-button uk-button-primary send-frames">Send frames</button>
             </div>
-            <div id="slideshowBoards" v-if="show" uk-slideshow>
+            <div id="slideshowBoards" v-if="show">
                 <ul class="uk-slideshow-items boards" uk-height-viewport="min-height: 480">
                     <li v-for="(board, index) in framesData" class="board-item">
                         <div class="board" :id="parseInt(index)">

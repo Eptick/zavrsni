@@ -3,12 +3,10 @@ socket.on('status update', function(msg){});
 Vue.config.devtools = true;
 function countProperties(obj) {
     var count = 0;
-
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
             ++count;
     }
-
     return count;
 }
 $(document).ready(function () {
@@ -22,7 +20,8 @@ window.gpio = new Vue({
         message: 'Hello Vue!',
         currentIndex: 0,
         show: true,
-        framesData: {}
+        framesData: {},
+        slideshow: undefined
     },
     methods: {
         getFrames: function() {
@@ -45,14 +44,21 @@ window.gpio = new Vue({
                 row.push(0)
             for(let i = 0; i < this.y; i++)
                 frame.push(row.slice(0))
-            Vue.set(this.framesData, window.countProperties(this.framesData), frame.slice(0))
+            let newFrameIndex =  window.countProperties(this.framesData);
+            Vue.set(this.framesData,newFrameIndex, frame.slice(0))
+            this.refreshSlideshow();
+            this.goTo(newFrameIndex);
         },
-        getIndex: function() {
-            return this.$slideshowBoards.index;
+        goTo(index = 0) {
+            let self = this;
+            setTimeout(() => {self.slideshow.show(index)}, 50);
         },
-        refreshSlideshow() {
+        refreshSlideshow(reRender = true) {
             this.show = false;
             this.show = true;
+            if(reRender) {
+                this.slideshow = UIkit.slideshow($("#slideshowBoards").get(0), {})
+            }
         },
         getLedId: function(index, row, led) {
             return index +'-'+row+led; 
@@ -63,11 +69,19 @@ window.gpio = new Vue({
                 this.framesData[parseInt(index)][row][led] = 1;
             else
                 this.framesData[parseInt(index)][row][led] = 0;
-            this.refreshSlideshow()
+            this.refreshSlideshow(false);
         },
         ledIsActive(index, rowIndex, ledIndex) {
             let state = this.framesData[parseInt(index)][rowIndex][ledIndex];
             return (state === 0)?false:true;
+        },
+        removeFrame() {
+            let indexToRemove = this.slideshow.getIndex();
+            console.log(indexToRemove);
+            for(let i = indexToRemove+1; i < window.countProperties(this.framesData); i++)
+                this.framesData[i-1] = this.framesData[i];
+            delete this.framesData[window.countProperties(this.framesData)-1];
+            this.refreshSlideshow();
         }
     },
     created: function () {
@@ -83,7 +97,9 @@ window.gpio = new Vue({
             }
             this.framesData[j] = frame;
         }
-        this.refreshSlideshow()
+    },
+    mounted: function() {
+        this.refreshSlideshow();
     }
 })
 // // $.post( "/", { action: "status" }, function( data ) {});
