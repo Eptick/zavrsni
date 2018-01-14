@@ -1,7 +1,6 @@
 'use strict'
 const express = require('express')
 const path = require('path');
-var fs = require("fs");
 var bodyParser = require('body-parser')
 const https = require('https')
 
@@ -68,15 +67,9 @@ app.post('/', (req, res) => {
     }
     res.send();
 })
-app.post('/search', (req, res) => {
-    if(req.body.term === undefined) {
-        res.status(500).send({ error: 'term not sent' });
-        return;
-    }
-})
 
 io.on('connection', function(socket){
-    console.log('a user connected');
+    //console.log('a user connected');
 });
 
 http.listen(8080, () => console.log('Speaker listening on port 8080!'))
