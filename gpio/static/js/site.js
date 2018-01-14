@@ -21,21 +21,12 @@ window.gpio = new Vue({
         currentIndex: 0,
         show: true,
         framesData: {},
-        slideshow: undefined
+        slideshow: undefined,
+        delay: 100
     },
     methods: {
         getFrames: function() {
-            let data = [];
-            $("#board-1 .row").each(function () {
-                let row = []
-                $(this).children(".led").each(function () {
-                    let led = $(this).children("input[type='checkbox']").first()
-                    let state = (led.is(":checked")===true)?1:0;
-                    row.push(state)
-                })
-                data.push(row)
-            })
-            console.log(data);
+            return JSON.stringify(this.framesData)
         },
         addFrame: function() {
             let row = [];
@@ -82,6 +73,19 @@ window.gpio = new Vue({
                 this.framesData[i-1] = this.framesData[i];
             delete this.framesData[window.countProperties(this.framesData)-1];
             this.refreshSlideshow();
+        },
+        sendData() {
+            let data = {}
+            data.action = "display"
+            data.frames = this.getFrames();
+            data.delay = this.delay;
+            $.ajax({
+                type: "POST",
+                url: "http://192.168.1.69:8080/",
+                data: data,
+                success: (data) => {console.log(data)},
+                dataType: 'json'
+              });
         }
     },
     created: function () {

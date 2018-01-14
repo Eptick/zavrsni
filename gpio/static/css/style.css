@@ -40,6 +40,14 @@
     z-index: 2;
     padding: 5px
 }
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 5px
+}
 .header .send-frames {
     position: absolute;
     right: 0;
