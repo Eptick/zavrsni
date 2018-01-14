@@ -1,5 +1,3 @@
-var socket = io();
-socket.on('status update', function(msg){});
 Vue.config.devtools = true;
 function countProperties(obj) {
     var count = 0;

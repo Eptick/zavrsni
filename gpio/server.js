@@ -6,7 +6,6 @@ const https = require('https')
 
 const app = express()
 var http = require('http').Server(app);
-const io = require('socket.io')(http);
 
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var stupacPinMap = [14, 15, 18, 23, 24, 25,  8, 7];
@@ -52,7 +51,6 @@ app.post('/', (req, res) => {
     }
     switch(req.body.action) {
         case 'display':
-            console.log(req.body);
             keys = [];
             frames = req.body.frames;
             for(let k in frames) {
@@ -67,9 +65,5 @@ app.post('/', (req, res) => {
     }
     res.send();
 })
-
-io.on('connection', function(socket){
-    //console.log('a user connected');
-});
 
 http.listen(8080, () => console.log('Speaker listening on port 8080!'))
