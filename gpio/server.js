@@ -25,7 +25,7 @@ var frames = [];
 var keys = [];
 var key;
 var playing = false;
-function printFrame(i, old = 0){
+function printFrame(i=0, old = 0){
 	piRedakPins[old].writeSync(0);
 	piRedakPins[i].writeSync(1);
 	for(var j = 0; j < 8; j++) {
