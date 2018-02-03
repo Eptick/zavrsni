@@ -36,7 +36,8 @@ function printFrame(i, old = 0){
 }
 function selectKey(i = 0) {
     key = keys[i];
-    setTimeout(selectKey, delay,(i+1)%(keys.length));
+    // setTimeout(selectKey, delay,(i+1)%(keys.length));
+    setTimeout(selectKey, 250,(i+1)%(keys.length));
 }
 
 app.use( bodyParser.json() );
