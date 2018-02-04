@@ -25,6 +25,7 @@ var frames = [];
 var keys = [];
 var key;
 var playing = false;
+var delay = 250;
 function printFrame(i=0, old = 0){
 	piRedakPins[old].writeSync(0);
 	piRedakPins[i].writeSync(1);
