@@ -37,9 +37,8 @@ function printFrame(i=0, old = 0){
 }
 function selectKey(i = 0) {
     key = keys[i];
-    // setTimeout(selectKey, delay,(i+1)%(keys.length));
     if(playing)
-	setTimeout(selectKey, 100000,(i+1)%(keys.length));
+        setTimeout(selectKey, delay,(i+1)%(keys.length));
 }
 
 app.use( bodyParser.json() );
@@ -55,6 +54,7 @@ app.post('/', (req, res) => {
     switch(req.body.action) {
         case 'display':
             keys = [];
+            delay = parseInt( req.body.delay );
             frames = JSON.parse( req.body.frames );
             for(let k in frames) {
                 keys.push(k);
