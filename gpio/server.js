@@ -32,12 +32,14 @@ function printFrame(i=0, old = 0){
         // Ovdje ide 1 - state jer mora biti inverz (ground je 0 ) 1 je visoki otpor odnosno brokiran
         piStupacPins[j].writeSync(1-frames[key][i][j]);
     }
-    setTimeout(printFrame, 4,(i+1)%8, i);
+    if(playing)
+	setTimeout(printFrame, 4,(i+1)%8, i);
 }
 function selectKey(i = 0) {
     key = keys[i];
     // setTimeout(selectKey, delay,(i+1)%(keys.length));
-    setTimeout(selectKey, 100000,(i+1)%(keys.length));
+    if(playing)
+	setTimeout(selectKey, 100000,(i+1)%(keys.length));
 }
 
 app.use( bodyParser.json() );
@@ -54,15 +56,20 @@ app.post('/', (req, res) => {
         case 'display':
             keys = [];
             frames = JSON.parse( req.body.frames );
-	    console.log(frames);
             for(let k in frames) {
                 keys.push(k);
             }
             key = keys[0];
+	    console.log("frames",frames);
+	    console.log("keys",keys);
             if(!playing) {
+		playing = true;
                 setTimeout(selectKey, 1);
                 setTimeout(printFrame, 2);
-            }
+            } else {
+		playing = false;
+		setTimeout(function() {playing = true;setTimeout(selectKey, 1);setTimeout(printFrame, 2); }, 500);
+	    }
         break;
     }
     res.send();

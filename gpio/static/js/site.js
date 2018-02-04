@@ -14,7 +14,7 @@ window.gpio = new Vue({
         x: 8,
         y: 8,
         frame: [],
-        frames: 2,
+        frames: 1,
         currentIndex: 0,
         show: true,
         framesData: {},
