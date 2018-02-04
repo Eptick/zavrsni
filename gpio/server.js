@@ -37,6 +37,7 @@ function printFrame(i=0, old = 0){
 }
 function selectKey(i = 0) {
     key = keys[i];
+    console.log("Key change: ", key, "Delay", delay);
     if(playing)
         setTimeout(selectKey, delay,(i+1)%(keys.length));
 }
