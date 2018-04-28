@@ -1,10 +1,9 @@
 <?php 
 
 function zavrsni_enqueue() {
-    $port = 8080;
     $link = site_url();
     $data = array(
-        'link' => "${link}:${port}",
+        'link' => "${link}/ajax/",
     );
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
     wp_deregister_script('jquery');
