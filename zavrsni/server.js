@@ -14,7 +14,7 @@ const YoutubeOpts = {
 
 const app = express()
 var http = require('http').Server(app);
-const io = require('socket.io')(http, {path : '/ajax/socket'});
+const io = require('socket.io')(http, {path : '/socket'});
 
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var stupacPinMap = [14, 15, 18, 23, 24, 25,  8, 7];
@@ -147,7 +147,7 @@ app.post('/speaker/play', (req, res) => {
     }catch(e){console.error(e)};
     console.log("ID: requested for reproduction: " + req.body.id)
 })
-app.post('/', (req, res) => {
+    app.post('/', (req, res) => {
     console.log('request');
     res.send();
 })
