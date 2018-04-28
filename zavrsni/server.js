@@ -14,7 +14,7 @@ const YoutubeOpts = {
 
 const app = express()
 var http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {origins: 'http://*'});
 
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var stupacPinMap = [14, 15, 18, 23, 24, 25,  8, 7];
