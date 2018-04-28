@@ -23,7 +23,7 @@ $(document).ready(() => {
                 console.log( data );
             });
         })
-    }s
+    }
     $("#search").submit((event) => {
         event.preventDefault();
         $("#search-results").hide();
