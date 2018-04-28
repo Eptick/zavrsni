@@ -14,7 +14,7 @@ const YoutubeOpts = {
 
 const app = express()
 var http = require('http').Server(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http, {path : '/ajax/socket'});
 
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var stupacPinMap = [14, 15, 18, 23, 24, 25,  8, 7];
@@ -191,4 +191,4 @@ io.on('connection', function(socket){
     console.log('a user connected');
 });
 
-http.listen(8080, () => console.log('Server slusa na 8080!'))
+http.listen(8080, () => console.log('Speaker listening on port 8080!'))
