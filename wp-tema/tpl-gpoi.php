@@ -1,5 +1,6 @@
+<?php
 // Template Name: GPOI
-<?php get_header() ?>
+get_header() ?>
 <div class="body">
     <div id="app">
         <div class="header">
