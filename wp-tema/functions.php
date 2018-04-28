@@ -2,7 +2,7 @@
 function zavrsni_enqueue() {
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
     wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, true);
+	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, false);
 
     wp_enqueue_style( 'ui-kit', get_template_directory_uri() . '/gpio/static/uikit/css/uikit.min.css');
     wp_enqueue_script('common-socket', get_template_directory_uri() .'/gpio/static/socket/socket.io.slim.js');
