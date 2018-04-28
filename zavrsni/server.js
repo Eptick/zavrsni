@@ -47,7 +47,7 @@ function printFrame(i=0, old = 0){
 }
 function selectKey(i = 0) {
     key = keys[i];
-    console.log("Key change: ", key, "Delay", delay);
+    // console.log("Key change: ", key, "Delay", delay);
     if(playing)
         setTimeout(selectKey, delay,(i+1)%(keys.length));
 }
@@ -70,8 +70,6 @@ app.post('/gpio', (req, res) => {
                 keys.push(k);
             }
             key = keys[0];
-	    console.log("frames",frames);
-	    console.log("keys",keys);
             if(!playing) {
 		playing = true;
                 setTimeout(selectKey, 1);
@@ -147,10 +145,6 @@ app.post('/speaker/play', (req, res) => {
     }catch(e){console.error(e)};
     console.log("ID: requested for reproduction: " + req.body.id)
 })
-    app.post('/', (req, res) => {
-    console.log('request');
-    res.send();
-})
 
 /**
  * Status code
@@ -188,7 +182,7 @@ function getSongTitle(id) {
 }
 
 io.on('connection', function(socket){
-    console.log('a user connected');
+    console.log('A user connected');
 });
 
-http.listen(8080, () => console.log('Speaker listening on port 8080!'))
+http.listen(8080, () => console.log('Server started on port 8080!'))

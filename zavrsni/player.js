@@ -23,7 +23,7 @@ exports.play = function (id) {
         });
         
         _stream.on('close', (code) => {
-            console.log(`child process exited with code ${code}`);
+            console.log(`Song over: Code ${code}`);
         });
         _stream.on("close", (code, signal) => {
             self.playing = null;
