@@ -1,6 +1,6 @@
 <?php 
 $port = 8080;
-$link = base_url() ;
+$link = site_url();
 $data = array(
     'link' => "${link}:${port}",
 );
@@ -21,7 +21,7 @@ function zavrsni_enqueue() {
                 wp_enqueue_script('gpio-ve', 'https://unpkg.com/vue');
                 wp_enqueue_style( 'gpio-css', get_template_directory_uri() . '/gpio/static/css/style.css' );
                 wp_register_script('gpio-main', get_template_directory_uri() .'/gpio/static/js/site.js');
-                wp_localize_script( 'gpio-main', 'data', $data );
+                wp_localize_script( 'gpio-main', 'ajaxurldata', $data );
             }
             else if($template_name == 'tpl-speaker.php'){
                 wp_enqueue_style( 'speaker-css', get_template_directory_uri() . '/speaker/static/css/style.css' );
