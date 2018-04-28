@@ -3,6 +3,7 @@
 // Template Name:Speaker
 get_header(); ?>
 <div class="search">
+    <a href="<?= home_url(); ?>"<button class="uk-button uk-button-default" type="button">Home</button></a>
     <form class="uk-search uk-search-large" id="search">
         <span uk-search-icon></span>
         <input class="uk-search-input" type="search" placeholder="Search" id="search-input">

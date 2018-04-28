@@ -4,6 +4,7 @@ get_header() ?>
 <div class="body">
     <div id="app">
         <div class="header">
+            <a href="<?= home_url(); ?>"<button class="uk-button uk-button-default" type="button">Home</button></a>
             <button class="uk-button uk-button-default" type="button">Frames</button>
             <div uk-dropdown>
                 <ul class="uk-nav uk-dropdown-nav">
