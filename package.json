@@ -9,8 +9,9 @@
     "lame": "^1.2.4",
     "onoff": "^1.1.9",
     "socket.io": "^2.0.4",
-    "speaker": "^0.4.0",
-    "youtube-audio-stream": "^0.0.50",
+    "speaker": "^0.4.1",
+    "youtube-audio-stream": "^0.2.0",
+    "youtube-dl": "^1.12.2",
     "youtube-search": "^1.0.10"
   },
   "devDependencies": {},
