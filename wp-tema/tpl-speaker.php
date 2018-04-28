@@ -1,3 +1,5 @@
+// Template Name:Speaker
+<?php get_header(); ?>
 <div class="search">
     <form class="uk-search uk-search-large" id="search">
         <span uk-search-icon></span>
@@ -13,3 +15,4 @@
     <p id="status" class="uk-margin-remove">...</p>
     <button id="stop"class="uk-button uk-button-secondary"><span uk-icon="icon: close"></span></button>
 </div>
+<?php get_footer(); ?>

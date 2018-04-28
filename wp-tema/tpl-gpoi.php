@@ -1,3 +1,4 @@
+// Template Name: GPOI
 <?php get_header() ?>
 <div class="body">
     <div id="app">
