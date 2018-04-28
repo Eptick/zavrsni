@@ -1,6 +1,6 @@
 
 $(document).ready(() => {
-    var socket = io(ajaxurldata.link, {path:'/socket.io'});
+    var socket = io('http://192.168.1.13:8080');
     socket.on('status update', function(msg){
         console.log(msg);
         switch(msg.status) {
