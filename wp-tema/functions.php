@@ -1,10 +1,11 @@
 <?php 
-$port = 8080;
-$link = site_url();
-$data = array(
-    'link' => "${link}:${port}",
-);
+
 function zavrsni_enqueue() {
+    $port = 8080;
+    $link = site_url();
+    $data = array(
+        'link' => "${link}:${port}",
+    );
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, false);
