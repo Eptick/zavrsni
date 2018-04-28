@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io(ajaxurldata.link);
 socket.on('status update', function(msg){
     console.log(msg);
     switch(msg.status) {
