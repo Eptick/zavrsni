@@ -3,7 +3,7 @@ function zavrsni_enqueue() {
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
     wp_enqueue_script( 'jquery' );
 
-    wp_enqueue_style( 'ui-kit', get_template_directory_uri() . 'gpio/static/uikit/css/uikit.min.css');
+    wp_enqueue_style( 'ui-kit', get_template_directory_uri() . '/gpio/static/uikit/css/uikit.min.css');
     wp_enqueue_script('common-socket', get_template_directory_uri() .'/gpio/static/socket/socket.io.slim.js');
     wp_enqueue_script('common-uikit', get_template_directory_uri() .'/gpio/static/uikit/js/uikit.min.js');
     wp_enqueue_script('common-uikit-icons', get_template_directory_uri() .'/gpio/static/uikit/js/uikit-icons.min.js');
