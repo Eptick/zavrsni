@@ -31,7 +31,7 @@ h4 {
 }
 p, h1, h4 {
     width: 100%;
-    text-align: center;
+    text-align: center;color: white;
 }
 p {
     text-align: right;
