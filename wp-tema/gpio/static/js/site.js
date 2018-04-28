@@ -81,7 +81,7 @@ window.gpio = new Vue({
             data.delay = this.delay;
             $.ajax({
                 type: "POST",
-                url: "/",
+                url: ajaxurldata.link + "/gpio",
                 data: data,
                 success: (data) => {console.log(data)},
                 dataType: 'json'

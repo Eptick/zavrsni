@@ -1,7 +1,3 @@
-const stream = require('youtube-audio-stream')
-
-const decoder = require('lame').Decoder
-const Speaker = require('speaker')
 const cp = require('child_process');
 const EventEmitter = require('events');
 

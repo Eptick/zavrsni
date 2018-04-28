@@ -1,8 +1,13 @@
 <?php 
+$port = 8080;
+$link = base_url() ;
+$data = array(
+    'link' => "${link}:${port}",
+);
 function zavrsni_enqueue() {
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
     wp_deregister_script('jquery');
-	wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, false);
+    wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js', array(), null, false);
 
     wp_enqueue_style( 'ui-kit', get_template_directory_uri() . '/gpio/static/uikit/css/uikit.min.css');
     wp_enqueue_script('common-socket', get_template_directory_uri() .'/gpio/static/socket/socket.io.slim.js');
@@ -15,11 +20,13 @@ function zavrsni_enqueue() {
             if($template_name == 'tpl-gpoi.php'){
                 wp_enqueue_script('gpio-ve', 'https://unpkg.com/vue');
                 wp_enqueue_style( 'gpio-css', get_template_directory_uri() . '/gpio/static/css/style.css' );
-                wp_enqueue_script('gpio-main', get_template_directory_uri() .'/gpio/static/js/site.js');
+                wp_register_script('gpio-main', get_template_directory_uri() .'/gpio/static/js/site.js');
+                wp_localize_script( 'gpio-main', 'data', $data );
             }
             else if($template_name == 'tpl-speaker.php'){
                 wp_enqueue_style( 'speaker-css', get_template_directory_uri() . '/speaker/static/css/style.css' );
                 wp_enqueue_script('speaker-main', get_template_directory_uri() .'/speaker/static/js/site.js');
+                wp_localize_script( 'speaker-main', 'ajaxurldata', $data );
             }
             else {
                 wp_enqueue_style( 'style-name', get_stylesheet_uri() );
