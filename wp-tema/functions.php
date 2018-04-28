@@ -1,7 +1,6 @@
 <?php 
 function zavrsni_enqueue() {
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
-    wp_enqueue_style( 'style-name', get_stylesheet_uri() );
     wp_enqueue_script( 'jquery' );
 
     wp_enqueue_style( 'ui-kit', get_template_directory_uri() . 'gpio/static/uikit/css/uikit.min.css');
@@ -17,10 +16,15 @@ function zavrsni_enqueue() {
                 wp_enqueue_style( 'gpio-css', get_template_directory_uri() . '/gpio/static/css/style.css' );
                 wp_enqueue_script('gpio-main', get_template_directory_uri() .'/gpio/static/js/site.js');
             }
-            if($template_name == 'tpl-speaker.php'){
+            else if($template_name == 'tpl-speaker.php'){
                 wp_enqueue_style( 'speaker-css', get_template_directory_uri() . '/speaker/static/css/style.css' );
                 wp_enqueue_script('speaker-main', get_template_directory_uri() .'/speaker/static/js/site.js');
             }
+            else {
+                wp_enqueue_style( 'style-name', get_stylesheet_uri() );
+            }
+       } else {
+            wp_enqueue_style( 'style-name', get_stylesheet_uri() );
        }
 }
 add_action( 'wp_enqueue_scripts', 'zavrsni_enqueue' );
