@@ -1,5 +1,6 @@
 
-<?php// Template Name:Speaker
+<?php
+// Template Name:Speaker
 get_header(); ?>
 <div class="search">
     <form class="uk-search uk-search-large" id="search">
