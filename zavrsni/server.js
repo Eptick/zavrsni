@@ -147,6 +147,10 @@ app.post('/speaker/play', (req, res) => {
     }catch(e){console.error(e)};
     console.log("ID: requested for reproduction: " + req.body.id)
 })
+app.post('/', (req, res) => {
+    console.log('request');
+    res.send();
+})
 
 /**
  * Status code
