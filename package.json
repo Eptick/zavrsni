@@ -16,10 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "speaker": "node speaker/server.js",
-    "gpio": "node gpio/main.js",
-    "gpio:server": "node gpio/server.js"
+    "zavrsni": "node zavrsni/server.js"
   },
   "repository": {
     "type": "git",
