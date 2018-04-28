@@ -3,7 +3,7 @@
 function zavrsni_enqueue() {
     $link = site_url();
     $data = array(
-        'link' => "${link}/ajax/",
+        'link' => "${link}/ajax",
     );
     wp_enqueue_style( 'reset', get_template_directory_uri() . '/reset.css' );
     wp_deregister_script('jquery');
