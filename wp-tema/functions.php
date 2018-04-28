@@ -22,11 +22,13 @@ function zavrsni_enqueue() {
                 wp_enqueue_style( 'gpio-css', get_template_directory_uri() . '/gpio/static/css/style.css' );
                 wp_register_script('gpio-main', get_template_directory_uri() .'/gpio/static/js/site.js');
                 wp_localize_script( 'gpio-main', 'ajaxurldata', $data );
+                wp_enqueue_script('gpio-main');
             }
             else if($template_name == 'tpl-speaker.php'){
                 wp_enqueue_style( 'speaker-css', get_template_directory_uri() . '/speaker/static/css/style.css' );
                 wp_enqueue_script('speaker-main', get_template_directory_uri() .'/speaker/static/js/site.js');
                 wp_localize_script( 'speaker-main', 'ajaxurldata', $data );
+                wp_enqueue_script('speaker-main');
             }
             else {
                 wp_enqueue_style( 'style-name', get_stylesheet_uri() );
