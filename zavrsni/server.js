@@ -95,15 +95,6 @@ app.post('/speaker/', (req, res) => {
             player.stop();
             sendResponseToClient("", STATUS.STOPED);
         break;
-        case 'turnup':
-
-        break;
-        case 'turndown':
-
-        break;
-        case 'mute':
-
-        break;
         case 'status':
             let id = player.playing;
             if(id !== null)
