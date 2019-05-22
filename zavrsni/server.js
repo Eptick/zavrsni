@@ -8,6 +8,7 @@ const https = require('https')
 
 const YoutubeOpts = {
     maxResults: 10,
+// This key is no longer valid, don't bother.
     key: 'AIzaSyBb4Cy7KW9wUJJ1uNOm3_di-Ufb8WMRy_4',
     type: 'video'
 };
